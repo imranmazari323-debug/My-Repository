@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Imran Mazari - My Website</title>
+<title>Imran Academy - Monthly Paid Notes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body { font-family: Arial; text-align: center; background: #f0f0f0; margin: 0; }
-.header { background: #007bff; color: white; padding: 50px; }
-.header h1 { font-size: 40px; margin: 0; }
-.header p { font-size: 20px; }
-.box { background: white; margin: 20px; padding: 20px; border-radius: 15px; }
-button { background: #28a745; color: white; padding: 15px 25px; border: none; border-radius: 10px; font-size: 18px; }
+body { font-family: Arial; text-align: center; background: #f2f2f2; margin: 0; }
+.header { background: #0a7a42; color: white; padding: 30px 20px; }
+.paidBox { background: #ffcc00; margin: 15px; padding: 20px; border-radius: 15px; border: 3px solid #ff6600; }
+.box { background: white; margin: 15px; padding: 20px; border-radius: 15px; }
+.price { color: green; font-size: 26px; font-weight: bold; }
+input, select { padding: 12px; width: 85%; font-size: 17px; text-align: center; border-radius: 10px; border: 1px solid #ccc; margin: 5px; }
+button { background: #25D366; color: white; padding: 13px 20px; border: none; border-radius: 10px; font-size: 17px; margin-top: 8px; width: 90%; }
+.pay { background: #ff6600; }
+.download { display: none; background: #0a4ad6; }
+.lock { background: #ddd; color: #555; padding: 10px; border-radius: 10px; }
+.admin { background: #222; color: white; padding: 20px; margin: 15px; border-radius: 15px; }
+img { max-width: 90%; border-radius: 10px; margin-top: 10px; }
 </style>
 </head>
 <body>
 
 <div class="header">
-<h1>Hello, I am Imran Mazari</h1>
-<p>Welcome to My First Website</p>
+<h1>Imran Academy</h1>
+<p>CSS | BPSC | NTS - مکمل تیاری</p>
+<p>🔒 PAID MEMBERSHIP</p>
 </div>
 
-<div class="box">
-<h2>About Me</h2>
-<p>My name is Imran. I am learning Web Development and this is my first website on GitHub.</p>
+<div class="paidBox">
+<h2>🔒 PAID - مہینے کی ممبرشپ</h2>
+<p class="price">صرف 300 روپے / مہینہ</p>
+<p>✅ CSS کے سارے نوٹس<br>✅ BPSC کے سارے نوٹس<br>✅ NTS کے سارے نوٹس<br>✅ نئی ویڈیوز بھی</p>
+<p><b>Step 1:</b> 03324737271 - Muhammad Imran پر 300 Easypaisa کریں</p>
+<p><b>Step 2: Proof لگائیں</b></p>
+<input type="text" id="senderNum" placeholder="جس نمبر سے 300 بھیجے ہیں">
+<input type="text" id="amount" placeholder="کتنے بھیجے ہیں - 300">
+<input type="file" id="proofFile" accept="image/*" onchange="preview(this)">
+<img id="previewImg" style="display:none">
+<br>
+<button class="pay" onclick="sendProof()">📤 Proof بھیجیں - Screenshot لگائیں</button>
+<p><b>Step 3:</b> ملا ہوا کوڈ لکھیں</p>
+<input type="text" id="mainCode" placeholder="مہینے کا کوڈ لکھیں - M300">
+<button onclick="unlockAll()">🔓 کوڈ چیک کریں - سارا کھولیں</button>
+<p id="msg"></p>
 </div>
 
+<div id="notesArea">
 <div class="box">
-<h2>My Skills</h2>
-<p>✅ HTML | ✅ GitHub | ✅ Learning CSS</p>
-<button>Contact Me</button>
+<h2>📚 CSS مکمل نوٹس</h2>
+<p class="lock">🔒 PAID - پہلے 300 والی ممبرشپ لیں</p>
+<button class="download downBtn">📥 CSS ڈاؤن لوڈ کریں</button>
 </div>
+<div class="box">
+<h2>📚 BPSC نوٹس</h2>
+<p class="lock">🔒 PAID - پہلے 300 والی ممبرشپ لیں</p>
+<button class="download downBtn">📥 BPSC ڈاؤن لوڈ کریں</button>
+</div>
+<div class="box">
+<h2>📚 NTS تیاری نوٹس</h2>
+<p class="lock">🔒 PAID - پہلے 300 والی ممبرشپ لیں</p>
+<button class="download downBtn">📥 NTS ڈاؤن لوڈ کریں</button>
+</div>
+</div>
+
+<div class="admin">
+<h3>➕ نیا نوٹ / ویڈیو ایڈ کریں - صرف آپ کے لیے</h3>
+<input type="text" id="newTitle" placeholder="نوٹ یا ویڈیو کا نام">
+<input type="text" id="newPrice" placeholder="یہ مہینے والی ممبرشپ میں ہے - 300">
+<button onclick="addNote()">نیا نوٹ ایڈ کریں</button>
+</div>
+
+<script>
+function preview(input){
+  var img = document.getElementById("previewImg");
+  if(input.files[0]){ img.src = URL.createObjectURL(input.files[0]); img.style.display="block"; }
+}
+function sendProof(){
+  var num = document.getElementById("senderNum").value;
+  var amt = document.getElementById("amount").value;
+  var file = document.getElementById("proofFile").files[0];
+  if(num=="" || amt=="" || !file){ alert("نمبر، رقم اور Screenshot تینوں لگائیں"); return; }
+  var msg = "Assalam o Alaikum Imran Bhai, Maine Monthly Membership ke liye Proof bheja hai. Mera Number: "+num+", Amount: "+amt+", Easypaisa 03324737271 par bheje hain. Please Monthly Code bhej dein.";
+  window.open("https://wa.me/923324737271?text=" + encodeURIComponent(msg));
+  document.getElementById("msg").innerHTML = "✅ آپ کا Proof بھیج دیا گیا ہے! آپ نے مہینے کے 300 بھیجے ہیں۔ عمران بھائی آپ کو کوڈ بھیج دیں گے۔";
+}
+function unlockAll(){
+  var c = document.getElementById("mainCode").value;
+  if(c == "M300"){
+    var all = document.querySelectorAll(".downBtn");
+    for(var i=0; i<all.length; i++){ all[i].style.display="inline-block"; }
+    document.getElementById("msg").innerHTML = "✅ کوڈ صحیح ہے! آپ کی مہینے والی ممبرشپ کھل گئی، سارے نوٹس ڈاؤن لوڈ کریں";
+  } else { document.getElementById("msg").innerHTML = "❌ کوڈ غلط ہے، پہلے 300 بھیجیں"; }
+}
+function addNote(){
+  var t = document.getElementById("newTitle").value;
+  if(t==""){ alert("نام لکھیں"); return; }
+  var div = document.createElement("div");
+  div.className = "box";
+  div.innerHTML = "<h2>📚 "+t+"</h2><p class='lock'>🔒 PAID - مہینے والی ممبرشپ میں شامل</p><button class='download downBtn' style='display:inline-block'>📥 "+t+" ڈاؤن لوڈ کریں</button>";
+  document.getElementById("notesArea").appendChild(div);
+  alert("نیا نوٹ ایڈ ہو گیا!");
+}
+</script>
 
 </body>
 </html>
