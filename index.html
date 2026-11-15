@@ -8,13 +8,11 @@
 body{font-family:Arial;margin:0;background:#f2f2f2;text-align:center;-webkit-user-select:none;user-select:none}
 .header{background:#0a7a42;color:white;padding:20px}
 .paid-box{background:#ffcc00;margin:15px;padding:20px;border-radius:15px;border:3px solid #ff6600;display:none}
-.paid-box-show{display:block}
 input,button{width:90%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
 button{background:#ff6600;color:white;border:none;font-weight:bold;cursor:pointer}
 .green{background:#0a7a42}
 .note{background:white;margin:10px;padding:15px;border-radius:12px;position:relative;overflow:hidden}
 .note::after{content:"Imran Academy © 03324737271";position:absolute;bottom:5px;left:10px;font-size:10px;color:#ccc}
-.lock{background:#eee;padding:10px;border-radius:10px;color:#555}
 .owner{margin:20px;padding:15px;background:#222;color:white;border-radius:12px}
 #ownerPanel{display:none}
 </style>
@@ -23,30 +21,24 @@ button{background:#ff6600;color:white;border:none;font-weight:bold;cursor:pointe
 
 <div class="header">
 <h1>Imran Academy</h1>
-<p>CSS | BPSC | NTS - مکمل تیاری</p>
-<p>🔒 PAID MEMBERSHIP</p>
+<p>CSS | BPSC | NTS | Police | Apprenticeship - مکمل تیاری</p>
+<p>🔒 PAID MEMBERSHIP - 300 روپے / مہینہ</p>
 </div>
 
-<!-- DOCUMENTS - سب کو نظر آئیں گے -->
-<div class="note">
-<h3>📚 CSS مکمل نوٹس - PDF</h3>
-<p>یہ نوٹ دیکھ سکتے ہو، Download نہیں کر سکتے</p>
-<button onclick="askPayment()">📥 PDF Download</button>
-</div>
+<!-- 1 -->
+<div class="note"><h3>📚 1. CSS مکمل نوٹس - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<!-- 2 -->
+<div class="note"><h3>📚 2. BPSC نوٹس - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<!-- 3 -->
+<div class="note"><h3>📚 3. NTS تیاری - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<!-- 4 -->
+<div class="note"><h3>📚 4. Apprenticeship Test and Interview - PDF</h3><p>Test + Interview مکمل تیاری</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<!-- 5 -->
+<div class="note"><h3>📚 5. Punjab Police Test - PDF</h3><p>پنجاب پولیس ٹیسٹ مکمل تیاری</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<!-- 6 -->
+<div class="note"><h3>📚 6. Punjab Text Book - PDF</h3><p>پنجاب ٹیکسٹ بک مکمل</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
 
-<div class="note">
-<h3>📚 BPSC نوٹس - PDF</h3>
-<p>یہ نوٹ دیکھ سکتے ہو، Download نہیں کر سکتے</p>
-<button onclick="askPayment()">📥 PDF Download</button>
-</div>
-
-<div class="note">
-<h3>📚 NTS تیاری - PDF</h3>
-<p>یہ نوٹ دیکھ سکتے ہو، Download نہیں کر سکتے</p>
-<button onclick="askPayment()">📥 PDF Download</button>
-</div>
-
-<!-- PAID BOX - Download دبانے پر کھلے گا -->
+<!-- PAID BOX -->
 <div class="paid-box" id="paidBox">
 <h2>🔒 Download کے لیے PAID لیں - 300 روپے / مہینہ</h2>
 <p><b>Step 1:</b> 03324737271 - Muhammad Imran پر Easypaisa کریں - 300</p>
@@ -55,7 +47,7 @@ button{background:#ff6600;color:white;border:none;font-weight:bold;cursor:pointe
 <input type="file" accept="image/*">
 <button onclick="sendProof()">📸 Proof بھیجیں</button>
 <p id="proofMsg"></p>
-<p><b>Step 3:</b> WhatsApp سے ملا ہوا کوڈ لکھیں - کوڈ یہاں لکھا ہوا نہیں ہے</p>
+<p><b>Step 3:</b> WhatsApp سے ملا ہوا کوڈ لکھیں</p>
 <input type="text" id="codeInput" placeholder="WhatsApp والا کوڈ لکھیں">
 <button class="green" onclick="checkCode()">🔓 کوڈ چیک کریں - Download کھولیں</button>
 <p id="codeMsg"></p>
@@ -70,20 +62,18 @@ button{background:#ff6600;color:white;border:none;font-weight:bold;cursor:pointe
 <div id="ownerPanel">
 <h3>✅ خوش آمدید عمران!</h3>
 <p>یہاں سے آپ Document Upload کر سکتے ہیں</p>
-<input type="text" placeholder="Document کا نام">
+<input type="text" placeholder="Document کا نام - جیسے Punjab Police Test">
 <input type="file">
 <button class="green" onclick="alert('Document Upload ہو گیا!')">➕ Document Upload کریں</button>
 </div>
 </div>
 
 <script>
-// Screenshot / Copy روکنے کے لیے
 document.addEventListener('keydown', function(e){
 if(e.key=='PrintScreen'){alert('Screenshot بند ہے!'); e.preventDefault();}
 if(e.ctrlKey && (e.key=='c' || e.key=='p' || e.key=='s' || e.key=='u')){alert('Copy / Print بند ہے!'); e.preventDefault();}
 });
 document.addEventListener('copy', function(e){e.preventDefault(); alert('Copy بند ہے!');});
-
 function askPayment(){
 document.getElementById('paidBox').style.display="block";
 window.scrollTo(0, document.getElementById('paidBox').offsetTop);
@@ -96,7 +86,7 @@ function checkCode(){
 let c = document.getElementById('codeInput').value;
 if(c == "M300"){
 document.getElementById('codeMsg').innerHTML = "✅ کوڈ ٹھیک ہے! اب آپ Download کر سکتے ہیں۔";
-alert("✅ مبارک ہو! اب Download کا بٹن کھل گیا ہے۔");
+alert("✅ مبارک ہو! اب Download کھل گیا ہے۔");
 }else{
 document.getElementById('codeMsg').innerHTML = "❌ غلط کوڈ ہے۔ پہلے 300 بھیجیں، پھر WhatsApp سے کوڈ لیں۔";
 }
