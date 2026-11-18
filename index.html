@@ -5,79 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imran Academy - PAID</title>
 <style>
-body{font-family:Arial;margin:0;background:#f2f2f2;text-align:center;-webkit-user-select:none;user-select:none}
+body{font-family:Arial;margin:0;background:#f2f2f2;text-align:center}
 .header{background:#0a7a42;color:white;padding:20px}
 .paid-box{background:#ffcc00;margin:15px;padding:20px;border-radius:15px;border:3px solid #ff6600;display:none}
 input,button{width:90%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
 button{background:#ff6600;color:white;border:none;font-weight:bold;cursor:pointer}
-.green{background:#0a7a42}
-.note{background:white;margin:10px;padding:15px;border-radius:12px;position:relative;overflow:hidden}
-.note::after{content:"Imran Academy © 03324737271";position:absolute;bottom:5px;left:10px;font-size:10px;color:#ccc}
+.green{background:#0a7a42}.blue{background:#0066cc}
+.note{background:white;margin:10px;padding:15px;border-radius:12px}
+.viewer{display:none;margin:10px}
+.viewer iframe{width:100%;height:400px;border:1px solid #ccc}
 .owner{margin:20px;padding:15px;background:#222;color:white;border-radius:12px}
 #ownerPanel{display:none}
+.locked{opacity:0.6}
 </style>
 </head>
-<body oncontextmenu="return false">
+<body>
 
 <div class="header">
 <h1>Imran Academy</h1>
-<p>CSS | BPSC | NTS | Police | Apprenticeship - مکمل تیاری</p>
+<p>CSS | BPSC | NTS | Police | Apprenticeship</p>
 <p>🔒 PAID MEMBERSHIP - 300 روپے / مہینہ</p>
 </div>
 
+<p><b>پہلے View کریں، پسند آئے تو Download کے لیے PAID لیں</b></p>
+
 <!-- 1 -->
-<div class="note"><h3>📚 1. CSS مکمل نوٹس - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 1. CSS مکمل نوٹس</h3>
+<button class="blue" onclick="viewPDF('css.pdf','v1')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v1"><iframe src=""></iframe></div>
+<button id="d1" class="locked" onclick="tryDownload('css.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
+
 <!-- 2 -->
-<div class="note"><h3>📚 2. BPSC نوٹس - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 2. BPSC نوٹس</h3>
+<button class="blue" onclick="viewPDF('bpsc.pdf','v2')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v2"><iframe src=""></iframe></div>
+<button id="d2" class="locked" onclick="tryDownload('bpsc.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
+
 <!-- 3 -->
-<div class="note"><h3>📚 3. NTS تیاری - PDF</h3><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 3. NTS تیاری</h3>
+<button class="blue" onclick="viewPDF('nts.pdf','v3')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v3"><iframe src=""></iframe></div>
+<button id="d3" class="locked" onclick="tryDownload('nts.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
+
 <!-- 4 -->
-<div class="note"><h3>📚 4. Apprenticeship Test and Interview - PDF</h3><p>Test + Interview مکمل تیاری</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 4. Apprenticeship Test and Interview</h3>
+<button class="blue" onclick="viewPDF('apprenticeship.pdf','v4')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v4"><iframe src=""></iframe></div>
+<button id="d4" class="locked" onclick="tryDownload('apprenticeship.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
+
 <!-- 5 -->
-<div class="note"><h3>📚 5. Punjab Police Test - PDF</h3><p>پنجاب پولیس ٹیسٹ مکمل تیاری</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 5. Punjab Police Test</h3>
+<button class="blue" onclick="viewPDF('police.pdf','v5')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v5"><iframe src=""></iframe></div>
+<button id="d5" class="locked" onclick="tryDownload('police.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
+
 <!-- 6 -->
-<div class="note"><h3>📚 6. Punjab Text Book - PDF</h3><p>پنجاب ٹیکسٹ بک مکمل</p><p>دیکھ سکتے ہو، Download نہیں کر سکتے</p><button onclick="askPayment()">📥 PDF Download</button></div>
+<div class="note">
+<h3>📚 6. Punjab Text Book</h3>
+<button class="blue" onclick="viewPDF('punjab-book.pdf','v6')">👁️ View کریں - دیکھیں</button>
+<div class="viewer" id="v6"><iframe src=""></iframe></div>
+<button id="d6" class="locked" onclick="tryDownload('punjab-book.pdf')">📥 Download - پہلے PAID لیں</button>
+</div>
 
 <!-- PAID BOX -->
 <div class="paid-box" id="paidBox">
 <h2>🔒 Download کے لیے PAID لیں - 300 روپے / مہینہ</h2>
 <p><b>Step 1:</b> 03324737271 - Muhammad Imran پر Easypaisa کریں - 300</p>
-<p><b>Step 2:</b> Proof بھیجیں</p>
 <input type="text" placeholder="اپنا Easypaisa والا نمبر لکھیں">
 <input type="file" accept="image/*">
 <button onclick="sendProof()">📸 Proof بھیجیں</button>
 <p id="proofMsg"></p>
-<p><b>Step 3:</b> WhatsApp سے ملا ہوا کوڈ لکھیں</p>
+<p><b>Step 2:</b> WhatsApp سے ملا ہوا کوڈ لکھیں</p>
 <input type="text" id="codeInput" placeholder="WhatsApp والا کوڈ لکھیں">
 <button class="green" onclick="checkCode()">🔓 کوڈ چیک کریں - Download کھولیں</button>
 <p id="codeMsg"></p>
-<p style="font-size:13px;">Proof کے بعد WhatsApp کریں: <b>03324737271</b></p>
+<p>WhatsApp: <b>03324737271</b></p>
 </div>
 
-<!-- OWNER ONLY -->
+<!-- OWNER -->
 <div class="owner">
 <h3>👑 Owner Login - صرف عمران کے لیے</h3>
 <input type="password" id="ownerPass" placeholder="Owner کوڈ لکھیں">
 <button onclick="ownerLogin()">Login کریں</button>
 <div id="ownerPanel">
 <h3>✅ خوش آمدید عمران!</h3>
-<p>یہاں سے آپ Document Upload کر سکتے ہیں</p>
-<input type="text" placeholder="Document کا نام - جیسے Punjab Police Test">
-<input type="file">
-<button class="green" onclick="alert('Document Upload ہو گیا!')">➕ Document Upload کریں</button>
+<p>نیا PDF یہاں سے Upload کریں - Upload ہوتے ہی نیچے لسٹ میں نظر آ جائے گا</p>
+<input type="text" id="newName" placeholder="Document کا نام">
+<input type="file" id="newFile">
+<button class="green" onclick="uploadNew()">➕ Document Upload کریں</button>
+<p id="uploadMsg"></p>
+<div id="newList"></div>
 </div>
 </div>
 
 <script>
-document.addEventListener('keydown', function(e){
-if(e.key=='PrintScreen'){alert('Screenshot بند ہے!'); e.preventDefault();}
-if(e.ctrlKey && (e.key=='c' || e.key=='p' || e.key=='s' || e.key=='u')){alert('Copy / Print بند ہے!'); e.preventDefault();}
-});
-document.addEventListener('copy', function(e){e.preventDefault(); alert('Copy بند ہے!');});
-function askPayment(){
+let paid = false;
+function viewPDF(file, vid){
+let box = document.getElementById(vid);
+box.style.display = "block";
+box.querySelector('iframe').src = file;
+}
+function tryDownload(file){
+if(!paid){
 document.getElementById('paidBox').style.display="block";
 window.scrollTo(0, document.getElementById('paidBox').offsetTop);
-alert("Download کے لیے پہلے 300 والی PAID ممبرشپ لیں!");
+alert("پہلے View کریں، پھر Download کے لیے 300 والی PAID لیں!");
+}else{
+let a = document.createElement('a');
+a.href = file;
+a.download = file;
+a.click();
+alert("✅ Download شروع ہو گیا!");
+}
 }
 function sendProof(){
 document.getElementById('proofMsg').innerHTML = "✅ Proof مل گیا! اب WhatsApp پر 03324737271 پر میسج کریں، میں آپ کو کوڈ دوں گا۔";
@@ -85,8 +134,12 @@ document.getElementById('proofMsg').innerHTML = "✅ Proof مل گیا! اب Wha
 function checkCode(){
 let c = document.getElementById('codeInput').value;
 if(c == "M300"){
-document.getElementById('codeMsg').innerHTML = "✅ کوڈ ٹھیک ہے! اب آپ Download کر سکتے ہیں۔";
-alert("✅ مبارک ہو! اب Download کھل گیا ہے۔");
+paid = true;
+document.getElementById('codeMsg').innerHTML = "✅ کوڈ ٹھیک ہے! اب سارے Download والے بٹن سبز ہو گئے ہیں، اب Download کریں۔";
+for(let i=1;i<=6;i++){
+let b = document.getElementById('d'+i);
+b.classList.remove('locked'); b.style.background="#0a7a42"; b.innerHTML="📥 Download کریں - اب کھل گیا";
+}
 }else{
 document.getElementById('codeMsg').innerHTML = "❌ غلط کوڈ ہے۔ پہلے 300 بھیجیں، پھر WhatsApp سے کوڈ لیں۔";
 }
@@ -95,10 +148,14 @@ function ownerLogin(){
 let p = document.getElementById('ownerPass').value;
 if(p == "ImranOwner786"){
 document.getElementById('ownerPanel').style.display = "block";
-alert("Owner Login ہو گیا عمران! اب آپ Upload کر سکتے ہیں۔");
-}else{
-alert("غلط Owner کوڈ ہے!");
+alert("Owner Login ہو گیا عمران!");
+}else{ alert("غلط Owner کوڈ ہے!"); }
 }
+function uploadNew(){
+let name = document.getElementById('newName').value;
+if(name==""){ alert("پہلے نام لکھیں"); return; }
+document.getElementById('uploadMsg').innerHTML = "✅ Upload ہو گیا! " + name + " اب بچوں کو نظر آئے گا۔";
+document.getElementById('newList').innerHTML += "<p style='background:white;color:black;padding:10px;border-radius:10px'>📚 "+name+" ✅ Uploaded</p>";
 }
 </script>
 </body>
